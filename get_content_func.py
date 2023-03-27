@@ -132,7 +132,6 @@ def get_comments():
 
 
 
-
 '''
 #-= example of how to use the JSON to get the element you want =-
 print(json_data[1]['title'])
