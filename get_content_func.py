@@ -6,13 +6,13 @@ def write_status_code_to_console (status_code):
     match status_code:
         case 200:
             print("jest ok")
-        case 400 :
+        case 400:
             print("Bad request")
-        case 401 :
-             print("Unauthorized")
-        case 403 :
+        case 401:
+            print("Unauthorized")
+        case 403:
             print("Forbidden")
-        case 404 :
+        case 404:
             print("Not found")
 
     if status_code != 200:
