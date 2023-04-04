@@ -1,8 +1,14 @@
-from fastapi import FastAPI
-import get_content_func
+from fastapi import FastAPI, Request
+from fastapi.responses import HTMLResponse
+from fastapi.staticfiles import StaticFiles
+from fastapi.templating import Jinja2Templates
 
 app = FastAPI()
 
+app.mount("/Frontend", StaticFiles(directory="Frontend"), name="Frontend")
+
+templates = Jinja2Templates(directory="Frontend")
+
 @app.get("/")
-async def root():
-    return get_content_func.get_photos()
+async def read_item(request: Request):
+    return templates.TemplateResponse("index.html", context= {"request": request})
