@@ -1,0 +1,2 @@
+Localy: 
+interminal type: uvicorn backend.main:app --reload 

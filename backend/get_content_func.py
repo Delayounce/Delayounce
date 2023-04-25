@@ -20,6 +20,7 @@ def write_status_code_to_console (status_code):
         exit(-1)
 # -=   end of write_status_code_to_console   =-
 
+
 def get_post():
 
     '''

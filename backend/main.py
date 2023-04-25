@@ -2,14 +2,14 @@ from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
-import Backend.get_content_func as get_content_func
+import backend.get_content_func as get_content_func
 
 
 app = FastAPI()
 
-app.mount("/Frontend", StaticFiles(directory="frontend"), name="Frontend")
+app.mount("/docs", StaticFiles(directory="docs"), name="docs")
 
-templates = Jinja2Templates(directory="frontend")
+templates = Jinja2Templates(directory="docs")
 
 @app.get("/")
 async def read_item(request: Request):
@@ -17,19 +17,18 @@ async def read_item(request: Request):
 
 
 
-@app.get("/posty/{test}", response_class=HTMLResponse)
-def write_variable(request: Request, test: int):
 
-    
-    test = get_content_func.get_post()[test-1]["body"]
-
-    return templates.TemplateResponse("DisplayPosts.html",{"request":request, "test":test} )
+@app.get ("/about_us", response_class=HTMLResponse)
+async def read_item(request: Request):
+    return templates.TemplateResponse("about_us.html",{"request":request} )
 
 
-@app.get("/photo/{photoID}", response_class=HTMLResponse)
-def write_variable(request: Request, photoID: int):
 
-    
-    photoID = get_content_func.get_photos()[photoID-1]["url"]
 
-    return templates.TemplateResponse("DisplayPhotos.html",{"request":request, "photoID":photoID} )
+
+
+'''
+@app.post("/search/")
+async def create_item(search: Search):
+    return search
+'''
