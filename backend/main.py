@@ -2,7 +2,7 @@ from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
-import backend.get_content_func as get_content_func
+import backend.get_content_to_serve as get_content_to_serve
 
 
 app = FastAPI()
@@ -11,10 +11,40 @@ app.mount("/docs", StaticFiles(directory="docs"), name="docs")
 
 templates = Jinja2Templates(directory="docs")
 
+#start defining urls below
+
 @app.get("/")
 async def read_item(request: Request):
-    return templates.TemplateResponse("index.html", context= {"request": request})
+    posts = get_content_to_serve.get_x_posts(0,6)
+    return templates.TemplateResponse("index.html", context= {"request": request,"posts" : posts})
 
+@app.get("/page/{page_number}")
+async def read_item(request: Request,page_number):
+    posts = []
+    posts = get_content_to_serve.get_x_posts(int(page_number),6)
+    if len(posts) > 1:
+        while len(posts) < 6:
+            posts.append({
+                "userId": -1,
+                "id": -1,
+                "title": "no more titles",
+                "body": "no more posts"
+                })
+    else:
+        html_content = """
+    <html>
+        <head>
+            <title>Static HTML Response</title>
+        </head>
+        <body>
+            <p>how?</p>
+            <p>we don't have this many pages</p>
+        </body>
+    </html>
+    """
+    return HTMLResponse(content=html_content, status_code=200)
+
+    return templates.TemplateResponse("index.html", context= {"request": request,"posts" : posts})
 
 
 
