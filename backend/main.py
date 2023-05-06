@@ -8,7 +8,6 @@ import backend.get_content_to_serve as get_content_to_serve
 app = FastAPI()
 
 app.mount("/docs", StaticFiles(directory="docs"), name="docs")
-
 templates = Jinja2Templates(directory="docs")
 
 #start defining urls below
@@ -34,17 +33,17 @@ async def read_item(request: Request,page_number):
                 })
     else:
         html_content = """
-    <html>
-        <head>
-            <title>Static HTML Response</title>
-        </head>
-        <body>
-            <p>how?</p>
-            <p>we don't have this many pages</p>
-        </body>
-    </html>
-    """
-    return HTMLResponse(content=html_content, status_code=200)
+        <html>
+            <head>
+                <title>Static HTML Response</title>
+            </head>
+            <body>
+                <p>how?</p>
+                <p>we don't have this many pages</p>
+            </body>
+        </html>
+        """
+        return HTMLResponse(content=html_content, status_code=200)
 
     return templates.TemplateResponse("index.html", context= {"request": request,"posts" : posts})
 
