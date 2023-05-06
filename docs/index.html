@@ -16,8 +16,8 @@
         <div class="container"><a class="navbar-brand d-flex align-items-center" href="#"><strong>Delayounce</strong></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-5"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-5">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="https://delayounce.github.io/Delayounce/">Feed</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="https://delayounce.github.io/Delayounce/about_us">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="http://delayounce2.herokuapp.com/">Feed</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="http://delayounce2.herokuapp.com/about_us">About Us</a></li>
                 </ul><a class="btn btn-primary ms-md-2" role="button" href="">Reload</a>
             </div>
         </div>
@@ -106,13 +106,9 @@
     <div class="container">
         <nav class="d-xl-flex justify-content-xl-center">
             <ul class="pagination">
-                <li class="page-item"><a class="page-link" aria-label="Previous" href="#"><span aria-hidden="true">«</span></a></li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item"><a class="page-link" href="#">4</a></li>
-                <li class="page-item"><a class="page-link" href="#">5</a></li>
-                <li class="page-item"><a class="page-link" aria-label="Next" href="#"><span aria-hidden="true">»</span></a></li>
+                <li class="page-item"><a class="page-link" aria-label="Previous" href="delayounce2.herokuapp.com/page/{{prevP}}"><span aria-hidden="true">«</span></a></li>
+                <li class="page-item"><a class="page-link" href="#">{{nextP-1}}</a></li>
+                <li class="page-item"><a class="page-link" aria-label="Next" href="delayounce2.herokuapp.com/page/{{nextP}}"><span aria-hidden="true">»</span></a></li>
             </ul>
         </nav>
     </div>
