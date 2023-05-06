@@ -15,12 +15,22 @@ templates = Jinja2Templates(directory="docs")
 @app.get("/")
 async def read_item(request: Request):
     posts = get_content_to_serve.get_x_posts(0,6)
-    return templates.TemplateResponse("index.html", context= {"request": request,"posts" : posts})
+    previous_page = 0
+    next_page = 1
+    return templates.TemplateResponse("index.html", context= {"request": request,"posts" : posts, "prevP" : previous_page , "nextP" : next_page})
 
 @app.get("/page/{page_number}")
 async def read_item(request: Request,page_number):
     posts = []
     html_content = ""
+    
+    if(int(page_number) < 1):
+        previous_page = 0
+        page_number = 0
+    else:
+        previous_page= int(page_number)-1   
+         
+    next_page = int(page_number)+1
 
     posts = get_content_to_serve.get_x_posts(int(page_number),6)
     if len(posts) > 1:
@@ -45,7 +55,7 @@ async def read_item(request: Request,page_number):
         """
         return HTMLResponse(content=html_content, status_code=200)
 
-    return templates.TemplateResponse("index.html", context= {"request": request,"posts" : posts})
+    return templates.TemplateResponse("index.html", context= {"request": request,"posts" : posts, "prevP" : previous_page , "nextP" : next_page})
 
 
 
