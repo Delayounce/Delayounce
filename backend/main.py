@@ -21,6 +21,8 @@ async def read_item(request: Request):
 @app.get("/page/{page_number}")
 async def read_item(request: Request,page_number):
     posts = []
+    html_content = ""
+
     posts = get_content_to_serve.get_x_posts(int(page_number),6)
     if len(posts) > 1:
         while len(posts) < 6:
