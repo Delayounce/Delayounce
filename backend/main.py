@@ -15,9 +15,12 @@ templates = Jinja2Templates(directory="docs")
 @app.get("/")
 async def read_item(request: Request):
     posts = get_content_to_serve.get_x_posts(0,6)
+    photos = get_content_to_serve.get_x_random_photos(6)
+
+
     previous_page = 0
     next_page = 1
-    return templates.TemplateResponse("index.html", context= {"request": request,"posts" : posts, "prevP" : previous_page , "nextP" : next_page})
+    return templates.TemplateResponse("index.html", context= {"request": request,"posts" : posts,"photos":photos, "prevP" : previous_page , "nextP" : next_page})
 
 @app.get("/page/{page_number}")
 async def read_item(request: Request,page_number):
@@ -33,6 +36,8 @@ async def read_item(request: Request,page_number):
     next_page = int(page_number)+1
 
     posts = get_content_to_serve.get_x_posts(int(page_number),6)
+    photos = get_content_to_serve.get_x_random_photos(6)
+    
     if len(posts) > 1:
         while len(posts) < 6:
             posts.append({
@@ -55,7 +60,7 @@ async def read_item(request: Request,page_number):
         """
         return HTMLResponse(content=html_content, status_code=200)
 
-    return templates.TemplateResponse("index.html", context= {"request": request,"posts" : posts, "prevP" : previous_page , "nextP" : next_page})
+    return templates.TemplateResponse("index.html", context= {"request": request,"posts" : posts,"photos":photos, "prevP" : previous_page , "nextP" : next_page})
 
 
 
