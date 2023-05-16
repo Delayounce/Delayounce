@@ -5,6 +5,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Feed</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.reflowhq.com/v2/toolkit.min.css">
+    <link rel="stylesheet" href="assets/css/Articles-Cards-images.css">
+    <link rel="stylesheet" href="assets/css/Navbar-Centered-Brand-Dark-icons.css">
+    <link rel="stylesheet" href="assets/css/Pricing-Centered-badges.css">
     <link rel="stylesheet" href="/docs/assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/docs/assets/css/Articles-Cards-images.css">
     <link rel="stylesheet" href="/docs/assets/css/Navbar-Centered-Brand-Dark-icons.css">
@@ -13,8 +18,9 @@
 
 <body>
     <nav class="navbar navbar-dark navbar-expand-md bg-dark py-3">
-        <div class="container"><a class="navbar-brand d-flex align-items-center" href="/"><strong>Delayounce</strong></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-5"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navcol-5">
+        <div class="container"><a class="navbar-brand d-flex align-items-center" href="/"><strong>Delayounce</strong></a>
+            <div class="d-lg-flex justify-content-lg-center" data-reflow-type="product-search" data-reflow-show-button="true" data-reflow-placeholder=" "></div><button data-bs-toggle="collapse" data-bs-target="#navcol-5" class="navbar-toggler"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse d-lg-flex justify-content-lg-center" id="navcol-5">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="/">Feed</a></li>
                     <li class="nav-item"><a class="nav-link active" href="/about_us">About Us</a></li>
@@ -25,7 +31,7 @@
     <div class="container-fluid py-4 py-xl-5">
         <div class="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3">
             <div class="col">
-                <div class="card"><img class="card-img-top w-100 d-block fit-cover" style="height: 200px;" src="{{photos[0]}}">
+                <div class="card"><img class="card-img-top w-100 d-block card-img-top w-100 fit-cover" style="height: 200px;" src="{{photos[0]}}">
                     <div class="card-body p-4">
                         <h4 class="card-title">{{posts[0]["title"]}}</h4>
                         <p class="card-text">{{posts[0]["body"]}}</p>
@@ -39,7 +45,7 @@
                 </div>
             </div>
             <div class="col">
-                <div class="card"><img class="card-img-top w-100 d-block fit-cover" style="height: 200px;" src="{{photos[1]}}">
+                <div class="card"><img class="card-img-top w-100 d-block card-img-top w-100 fit-cover" style="height: 200px;" src="{{photos[1]}}">
                     <div class="card-body p-4">
                         <h4 class="card-title">{{posts[1]["title"]}}</h4>
                         <p class="card-text">{{posts[1]["body"]}}</p>
@@ -53,7 +59,7 @@
                 </div>
             </div>
             <div class="col">
-                <div class="card"><img class="card-img-top w-100 d-block fit-cover" style="height: 200px;" src="{{photos[2]}}">
+                <div class="card"><img class="card-img-top w-100 d-block card-img-top w-100 fit-cover" style="height: 200px;" src="{{photos[2]}}">
                     <div class="card-body p-4">
                         <h4 class="card-title">{{posts[2]["title"]}}</h4>
                         <p class="card-text">{{posts[2]["body"]}}</p>
@@ -69,7 +75,7 @@
         </div>
         <div class="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3">
             <div class="col">
-                <div class="card"><img class="card-img-top w-100 d-block fit-cover" style="height: 200px;" src="{{photos[3]}}">
+                <div class="card"><img class="card-img-top w-100 d-block card-img-top w-100 fit-cover" style="height: 200px;" src="{{photos[3]}}">
                     <div class="card-body p-4">
                         <h4 class="card-title">{{posts[3]["title"]}}</h4>
                         <p class="card-text">{{posts[3]["body"]}}</p>
@@ -80,7 +86,7 @@
                 </div>
             </div>
             <div class="col">
-                <div class="card"><img class="card-img-top w-100 d-block fit-cover" style="height: 200px;" src="{{photos[4]}}">
+                <div class="card"><img class="card-img-top w-100 d-block card-img-top w-100 fit-cover" style="height: 200px;" src="{{photos[4]}}">
                     <div class="card-body p-4">
                         <h4 class="card-title">{{posts[4]["title"]}}</h4>
                         <p class="card-text">{{posts[4]["body"]}}</p>
@@ -91,7 +97,7 @@
                 </div>
             </div>
             <div class="col">
-                <div class="card"><img class="card-img-top w-100 d-block fit-cover" style="height: 200px;" src="{{photos[5]}}">
+                <div class="card"><img class="card-img-top w-100 d-block card-img-top w-100 fit-cover" style="height: 200px;" src="{{photos[5]}}">
                     <div class="card-body p-4">
                         <h4 class="card-title">{{posts[5]["title"]}}</h4>
                         <p class="card-text">{{posts[5]["body"]}}</p>
@@ -103,12 +109,12 @@
             </div>
         </div>
     </div>
-    <div class="container">
-        <nav class="d-xl-flex justify-content-xl-center">
+    <div class="container text-start">
+        <nav class="text-center d-lg-flex d-xl-flex justify-content-lg-center justify-content-xl-center">
             <ul class="pagination">
-                <li class="page-item"><a class="page-link" aria-label="Previous" href="/page/{{prevP}}"><span aria-hidden="true">«</span></a></li>
+                <li class="page-item"><a class="page-link" href="/page/{{prevP}}" aria-label="Previous"></a></li>
                 <li class="page-item"><a class="page-link" href="#">{{nextP-1}}</a></li>
-                <li class="page-item"><a class="page-link" aria-label="Next" href="/page/{{nextP}}"><span aria-hidden="true">»</span></a></li>
+                <li class="page-item"><a class="page-link" href="/page/{{nextP}}" aria-label="Next"></a></li>
             </ul>
         </nav>
     </div>
@@ -117,6 +123,9 @@
             <p class="text-muted mb-0">Copyright © 2023 Delayounce</p>
         </div>
     </footer>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdn.reflowhq.com/v2/toolkit.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
     <script src="/docs/assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
 
