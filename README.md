@@ -8,4 +8,4 @@ The purpose of the application is to be a dummy for practicing and learning Code
 
 # How to deploy:
 
-to be added soon
+You can access the Webapp using Heroku hosting at https://delayounce.herokuapp.com/
